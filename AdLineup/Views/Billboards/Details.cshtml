@@ -1,0 +1,116 @@
+@model AdLineup.Models.Billboard
+
+@{
+    ViewBag.Title = "Details Billboard";
+}
+
+<h2>Billboard: @Html.DisplayFor(model => model.Name)</h2>
+
+<div>
+    <h4>Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Latitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Latitude)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Longitude)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Longitude)
+        </dd>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.AdFlowchartDiagramData)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AdFlowchartDiagramData)
+            </dd>
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<div>
+    <hr />
+    <h4>
+        Ads
+        &nbsp&nbsp&nbsp
+        <small>@Html.ActionLink("Add Ad To Billboard", "AddAdToBillboard", "Billboards", new { id = Model.Id }, null)</small>
+        &nbsp&nbsp&nbsp
+        <small>@Html.ActionLink("Ads Diagram", "BillboardAdsFlowchartDiagram", "Billboards", new { id = Model.Id }, null)</small>
+    </h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelAd => Model.Ads.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelAd => Model.Ads.FirstOrDefault().Index)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelAd => Model.Ads.FirstOrDefault().FlightStart)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelAd => Model.Ads.FirstOrDefault().FlightEnd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelAd => Model.Ads.FirstOrDefault().ImageFilename)
+            </th>
+        <th></th>
+        </tr>
+@foreach (var ad in Model.Ads)    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelAd => ad.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelAd => ad.Index)
+            </td>
+            <td>
+                @Html.DisplayFor(modelAd => ad.FlightStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelAd => ad.FlightEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelAd => ad.ImageFilename)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Ads", new { id = ad.Id }, null)
+ |
+                @Html.ActionLink("Remove from List", "RemoveAdFromBillboard", "Billboards", new { billboardId = Model.Id, adId = ad.Id }, null )
+            </td>
+        </tr>
+}
+    </table>    
+</div>
+

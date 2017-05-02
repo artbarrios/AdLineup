@@ -1,0 +1,7 @@
+C:\Users\barriosa\Documents\Projects\AdLineup\AdLineupModels\bin\Debug\AdLineupModels.dll
+C:\Users\barriosa\Documents\Projects\AdLineup\AdLineupModels\bin\Debug\AdLineupModels.pdb
+C:\Users\barriosa\Documents\Projects\AdLineup\AdLineupModels\obj\Debug\AdLineupModels.csprojResolveAssemblyReference.cache
+C:\Users\barriosa\Documents\Projects\AdLineup\AdLineupModels\obj\Debug\AdLineupModels.dll
+C:\Users\barriosa\Documents\Projects\AdLineup\AdLineupModels\obj\Debug\AdLineupModels.pdb
+C:\Users\barriosa\Documents\Projects\AdLineup\AdLineupModels\bin\Debug\Newtonsoft.Json.dll
+C:\Users\barriosa\Documents\Projects\AdLineup\AdLineupModels\bin\Debug\Newtonsoft.Json.xml

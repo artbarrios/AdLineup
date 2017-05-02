@@ -1,0 +1,105 @@
+@model AdLineup.Models.Ad
+
+@{
+    ViewBag.Title = "Details Ad";
+}
+
+<h2>Ad: @Html.DisplayFor(model => model.Name)</h2>
+
+<div>
+    <h4>Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Index)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Index)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightStart)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightStart)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightEnd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightEnd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageFilename)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageFilename)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<div>
+    <hr />
+    <h4>
+        Billboards
+        &nbsp&nbsp&nbsp
+        <small>@Html.ActionLink("Add Billboard To Ad", "AddBillboardToAd", "Ads", new { id = Model.Id }, null)</small>
+    </h4>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(modelBillboard => Model.Billboards.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelBillboard => Model.Billboards.FirstOrDefault().Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelBillboard => Model.Billboards.FirstOrDefault().Latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(modelBillboard => Model.Billboards.FirstOrDefault().Longitude)
+            </th>
+        <th></th>
+        </tr>
+@foreach (var billboard in Model.Billboards)    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelBillboard => billboard.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelBillboard => billboard.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelBillboard => billboard.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelBillboard => billboard.Longitude)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", "Billboards", new { id = billboard.Id }, null)
+ |
+                @Html.ActionLink("Remove from List", "RemoveBillboardFromAd", "Ads", new { adId = Model.Id, billboardId = billboard.Id }, null )
+            </td>
+        </tr>
+}
+    </table>    
+</div>
+
